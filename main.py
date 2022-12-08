@@ -1,10 +1,15 @@
 
 import argparse
+from runner import ModelRunner
 
-def main():
+def main(config) -> None:
+
+    model_runner = ModelRunner(config)
+    model_runner.train()
+
     pass
 
-def get_args():
+def get_args() -> dict:
 
     parser = argparse.ArgumentParser(description='DQN Pairs Trading')
 
@@ -19,9 +24,6 @@ def get_args():
         training_config[arg] = getattr(args, arg)
 
     return training_config
-
-
-
 
 if __name__ == '__main__':
     main(get_args())
